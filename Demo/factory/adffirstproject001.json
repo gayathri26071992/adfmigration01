@@ -1,0 +1,15 @@
+{
+	"name": "adffirstproject001",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "canadacentral",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "cb8c940b-d9da-48fc-84da-6e5326a65e77",
+		"tenantId": "33653a22-3dca-4452-bb7c-ee29d20c0ad5"
+	}
+}
