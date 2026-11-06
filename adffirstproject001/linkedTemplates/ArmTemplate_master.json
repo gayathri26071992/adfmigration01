@@ -1,0 +1,418 @@
+{
+	"$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"type": "string",
+			"metadata": "Data Factory name",
+			"defaultValue": "adffirstproject001"
+		},
+		"AzureDataLakeStorage1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'AzureDataLakeStorage1'"
+		},
+		"LS_ADLS_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_CSV'"
+		},
+		"LS_ADLS_SINK_PARAQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_SINK_PARAQUET'"
+		},
+		"LS_ADLS_SINK_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_ADLS_SINK_PARQUET'"
+		},
+		"LS_EVENT_TRIGER_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EVENT_TRIGER'"
+		},
+		"LS_EVENT_TRIGER_CSV_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EVENT_TRIGER_CSV'"
+		},
+		"LS_EVENT_TRIGER_SOURCE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_EVENT_TRIGER_SOURCE'"
+		},
+		"LS_Getmetadata_File_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Getmetadata_File'"
+		},
+		"LS_Getmetadata_source_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Getmetadata_source'"
+		},
+		"LS_SINK_EVENT_TRIGER_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SINK_EVENT_TRIGER'"
+		},
+		"LS_SINK_EVENT_TRIGER1_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SINK_EVENT_TRIGER1'"
+		},
+		"LS_SINK_PARAQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SINK_PARAQUET'"
+		},
+		"LS_SOURCE_EXCEL_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_SOURCE_EXCEL'"
+		},
+		"LS_SQLSERVER_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQLSERVER'"
+		},
+		"LS_SQL_Source_password": {
+			"type": "secureString",
+			"metadata": "Secure string for 'password' of 'LS_SQL_Source'"
+		},
+		"LS_Sink_Multiplefiles_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Sink_Multiplefiles'"
+		},
+		"LS_Source_Multiplefile_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_Source_Multiplefile'"
+		},
+		"LS_TRIGER_CSVSOURCE_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TRIGER_CSVSOURCE'"
+		},
+		"LS_TRIGER_SINMK_PARQUET_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_TRIGER_SINMK_PARQUET'"
+		},
+		"LS_delete_source_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_delete_source'"
+		},
+		"LS_sink_RESTAPI_accountKey": {
+			"type": "secureString",
+			"metadata": "Secure string for 'accountKey' of 'LS_sink_RESTAPI'"
+		},
+		"AzureDataLakeStorage1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SINK_PARAQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_ADLS_SINK_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_EVENT_TRIGER_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_EVENT_TRIGER_CSV_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_EVENT_TRIGER_SOURCE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_Getmetadata_File_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_Getmetadata_source_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_RESTAPI_SOURCE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://retoolapi.dev/5yDVOt/data"
+		},
+		"LS_SINK_EVENT_TRIGER_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_SINK_EVENT_TRIGER1_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_SINK_PARAQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_SQLSERVER_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "GAYATHRI\\SQLEXPRESS"
+		},
+		"LS_SQLSERVER_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_SQLSERVER_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "PracticeProject"
+		},
+		"LS_SQL_Source_properties_typeProperties_server": {
+			"type": "string",
+			"defaultValue": "GAYATHRI\\SQLEXPRESS"
+		},
+		"LS_SQL_Source_properties_typeProperties_database": {
+			"type": "string",
+			"defaultValue": "AdventureWorks2022"
+		},
+		"LS_SQL_Source_properties_typeProperties_userName": {
+			"type": "string",
+			"defaultValue": "PracticeProject"
+		},
+		"LS_Sink_Multiplefiles_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_Source_Multiplefile_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_TRIGER_CSVSOURCE_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_TRIGER_SINMK_PARQUET_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"LS_delete_source_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://sgfirstproject001.dfs.core.windows.net/"
+		},
+		"LS_sink_RESTAPI_properties_typeProperties_url": {
+			"type": "string",
+			"defaultValue": "https://adlsdevsink1account.dfs.core.windows.net/"
+		},
+		"trigger1_properties_typeProperties_scope": {
+			"type": "string",
+			"defaultValue": "/subscriptions/526100f7-c562-49ff-8082-57b4988ba034/resourceGroups/rgfirstproject001/providers/Microsoft.Storage/storageAccounts/sgfirstproject001"
+		},
+		"containerUri": {
+			"type": "string",
+			"metadata": "URI to storage account containing linked ARM templates"
+		},
+		"containerSasToken": {
+			"type": "string",
+			"metadata": "Sas token to storage account containing linked ARM templates"
+		}
+	},
+	"variables": {
+		"factoryId": "[concat('Microsoft.DataFactory/factories/', parameters('factoryName'))]"
+	},
+	"resources": [
+		{
+			"name": "adffirstproject001_ArmTemplate_0",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_0.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"AzureDataLakeStorage1_accountKey": {
+						"value": "[parameters('AzureDataLakeStorage1_accountKey')]"
+					},
+					"LS_ADLS_CSV_accountKey": {
+						"value": "[parameters('LS_ADLS_CSV_accountKey')]"
+					},
+					"LS_ADLS_SINK_PARAQUET_accountKey": {
+						"value": "[parameters('LS_ADLS_SINK_PARAQUET_accountKey')]"
+					},
+					"LS_ADLS_SINK_PARQUET_accountKey": {
+						"value": "[parameters('LS_ADLS_SINK_PARQUET_accountKey')]"
+					},
+					"LS_EVENT_TRIGER_accountKey": {
+						"value": "[parameters('LS_EVENT_TRIGER_accountKey')]"
+					},
+					"LS_EVENT_TRIGER_CSV_accountKey": {
+						"value": "[parameters('LS_EVENT_TRIGER_CSV_accountKey')]"
+					},
+					"LS_EVENT_TRIGER_SOURCE_accountKey": {
+						"value": "[parameters('LS_EVENT_TRIGER_SOURCE_accountKey')]"
+					},
+					"LS_Getmetadata_File_accountKey": {
+						"value": "[parameters('LS_Getmetadata_File_accountKey')]"
+					},
+					"LS_Getmetadata_source_accountKey": {
+						"value": "[parameters('LS_Getmetadata_source_accountKey')]"
+					},
+					"LS_SINK_EVENT_TRIGER_accountKey": {
+						"value": "[parameters('LS_SINK_EVENT_TRIGER_accountKey')]"
+					},
+					"LS_SINK_EVENT_TRIGER1_accountKey": {
+						"value": "[parameters('LS_SINK_EVENT_TRIGER1_accountKey')]"
+					},
+					"LS_SINK_PARAQUET_accountKey": {
+						"value": "[parameters('LS_SINK_PARAQUET_accountKey')]"
+					},
+					"LS_SOURCE_EXCEL_accountKey": {
+						"value": "[parameters('LS_SOURCE_EXCEL_accountKey')]"
+					},
+					"LS_SQLSERVER_password": {
+						"value": "[parameters('LS_SQLSERVER_password')]"
+					},
+					"LS_Sink_Multiplefiles_accountKey": {
+						"value": "[parameters('LS_Sink_Multiplefiles_accountKey')]"
+					},
+					"LS_Source_Multiplefile_accountKey": {
+						"value": "[parameters('LS_Source_Multiplefile_accountKey')]"
+					},
+					"LS_TRIGER_CSVSOURCE_accountKey": {
+						"value": "[parameters('LS_TRIGER_CSVSOURCE_accountKey')]"
+					},
+					"LS_TRIGER_SINMK_PARQUET_accountKey": {
+						"value": "[parameters('LS_TRIGER_SINMK_PARQUET_accountKey')]"
+					},
+					"LS_delete_source_accountKey": {
+						"value": "[parameters('LS_delete_source_accountKey')]"
+					},
+					"AzureDataLakeStorage1_properties_typeProperties_url": {
+						"value": "[parameters('AzureDataLakeStorage1_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_CSV_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_SINK_PARAQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SINK_PARAQUET_properties_typeProperties_url')]"
+					},
+					"LS_ADLS_SINK_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_ADLS_SINK_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_EVENT_TRIGER_properties_typeProperties_url": {
+						"value": "[parameters('LS_EVENT_TRIGER_properties_typeProperties_url')]"
+					},
+					"LS_EVENT_TRIGER_CSV_properties_typeProperties_url": {
+						"value": "[parameters('LS_EVENT_TRIGER_CSV_properties_typeProperties_url')]"
+					},
+					"LS_EVENT_TRIGER_SOURCE_properties_typeProperties_url": {
+						"value": "[parameters('LS_EVENT_TRIGER_SOURCE_properties_typeProperties_url')]"
+					},
+					"LS_Getmetadata_File_properties_typeProperties_url": {
+						"value": "[parameters('LS_Getmetadata_File_properties_typeProperties_url')]"
+					},
+					"LS_Getmetadata_source_properties_typeProperties_url": {
+						"value": "[parameters('LS_Getmetadata_source_properties_typeProperties_url')]"
+					},
+					"LS_RESTAPI_SOURCE_properties_typeProperties_url": {
+						"value": "[parameters('LS_RESTAPI_SOURCE_properties_typeProperties_url')]"
+					},
+					"LS_SINK_EVENT_TRIGER_properties_typeProperties_url": {
+						"value": "[parameters('LS_SINK_EVENT_TRIGER_properties_typeProperties_url')]"
+					},
+					"LS_SINK_EVENT_TRIGER1_properties_typeProperties_url": {
+						"value": "[parameters('LS_SINK_EVENT_TRIGER1_properties_typeProperties_url')]"
+					},
+					"LS_SINK_PARAQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_SINK_PARAQUET_properties_typeProperties_url')]"
+					},
+					"LS_SOURCE_EXCEL_properties_typeProperties_url": {
+						"value": "[parameters('LS_SOURCE_EXCEL_properties_typeProperties_url')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_server')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_database')]"
+					},
+					"LS_SQLSERVER_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQLSERVER_properties_typeProperties_userName')]"
+					},
+					"LS_Sink_Multiplefiles_properties_typeProperties_url": {
+						"value": "[parameters('LS_Sink_Multiplefiles_properties_typeProperties_url')]"
+					},
+					"LS_Source_Multiplefile_properties_typeProperties_url": {
+						"value": "[parameters('LS_Source_Multiplefile_properties_typeProperties_url')]"
+					},
+					"LS_TRIGER_CSVSOURCE_properties_typeProperties_url": {
+						"value": "[parameters('LS_TRIGER_CSVSOURCE_properties_typeProperties_url')]"
+					},
+					"LS_TRIGER_SINMK_PARQUET_properties_typeProperties_url": {
+						"value": "[parameters('LS_TRIGER_SINMK_PARQUET_properties_typeProperties_url')]"
+					},
+					"LS_delete_source_properties_typeProperties_url": {
+						"value": "[parameters('LS_delete_source_properties_typeProperties_url')]"
+					}
+				}
+			},
+			"dependsOn": []
+		},
+		{
+			"name": "adffirstproject001_ArmTemplate_1",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_1.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"LS_sink_RESTAPI_accountKey": {
+						"value": "[parameters('LS_sink_RESTAPI_accountKey')]"
+					},
+					"LS_SQL_Source_password": {
+						"value": "[parameters('LS_SQL_Source_password')]"
+					},
+					"LS_sink_RESTAPI_properties_typeProperties_url": {
+						"value": "[parameters('LS_sink_RESTAPI_properties_typeProperties_url')]"
+					},
+					"LS_SQL_Source_properties_typeProperties_server": {
+						"value": "[parameters('LS_SQL_Source_properties_typeProperties_server')]"
+					},
+					"LS_SQL_Source_properties_typeProperties_database": {
+						"value": "[parameters('LS_SQL_Source_properties_typeProperties_database')]"
+					},
+					"LS_SQL_Source_properties_typeProperties_userName": {
+						"value": "[parameters('LS_SQL_Source_properties_typeProperties_userName')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adffirstproject001_ArmTemplate_0')]"
+			]
+		},
+		{
+			"name": "adffirstproject001_ArmTemplate_2",
+			"type": "Microsoft.Resources/deployments",
+			"apiVersion": "2024-03-01",
+			"properties": {
+				"mode": "incremental",
+				"templateLink": {
+					"uri": "[concat(parameters('containerUri'), '/ArmTemplate_2.json', parameters('containerSasToken'))]",
+					"contentVersion": "1.0.0.0"
+				},
+				"parameters": {
+					"factoryName": {
+						"value": "[parameters('factoryName')]"
+					},
+					"trigger1_properties_typeProperties_scope": {
+						"value": "[parameters('trigger1_properties_typeProperties_scope')]"
+					}
+				}
+			},
+			"dependsOn": [
+				"[resourceId('Microsoft.Resources/deployments', 'adffirstproject001_ArmTemplate_1')]"
+			]
+		}
+	]
+}
